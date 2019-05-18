@@ -1,6 +1,12 @@
 ---
 # tasks file for opendistro-elastic
 
+- name: Ensure group "elasticsearch" exists
+  group:
+    name: elasticsearch
+    state: present
+  become: yes
+
 - name: add opendistroforelastic repository keys
   apt_key:
     url: https://d3g5vo6xdbdb9a.cloudfront.net/GPG-KEY-opendistroforelasticsearch
